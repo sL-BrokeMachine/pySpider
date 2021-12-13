@@ -17,7 +17,7 @@ try:
 except BaseException as e:
     print(f"数据库连接异常🤡  {e}")
 else:
-    print("数据库连接成功😀")
+    print("数据库连接异常🤡")
 
 
 # 生成SQL语句

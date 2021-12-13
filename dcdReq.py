@@ -40,6 +40,7 @@ def getSalesRank(month, count):
     """
     # url = f"https://www.dongchedi.com/motor/pc/car/rank_data?month={month}&rank_data_type=11&offset=0&count={count}&outter_detail_type={outter_detail_type}"
     url = f"https://www.dongchedi.com/motor/pc/car/rank_data?new_energy_type=1&month={month}&count={count}&rank_data_type=11"
+    # print(url)
     response = requestData(url, headers)
     if (response != 0):
         # 将结果转换成JSON格式
