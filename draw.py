@@ -2,15 +2,19 @@
 # @Author : Loners
 # @Time   : 2021/12/7 9:40
 # @File   : draw.py
+import os
+import webbrowser
 import dataStorage as db
 from pyecharts import options as opts
 from pyecharts.charts import Bar, WordCloud, Page, Line
 
+
 # 绘制近一年汽车销量榜
 def draw():
-    page = Page(layout=Page.SimplePageLayout)
     width = "1650px"
     height = "820px"
+    pageTitle = "数据展示页面"
+    page = Page(layout=Page.SimplePageLayout, page_title=pageTitle)
     # 每个厂商销量汇总
     xAxis = []
     yAxis = []
@@ -23,13 +27,13 @@ def draw():
 
     bar_1 = (
         Bar(
-            init_opts=opts.InitOpts(width=width, height=height)
+            init_opts=opts.InitOpts(width=width, height=height, page_title= pageTitle)
         )
             .add_xaxis(xAxis)
             .add_yaxis('', yAxis)
             .set_global_opts(
             xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=-15)),
-            yaxis_opts=opts.AxisOpts(name='销量(万台)'),
+            yaxis_opts=opts.AxisOpts(name='销量(台)'),
             title_opts=opts.TitleOpts(title=f"近一年汽车品牌销量表"),
             datazoom_opts=[opts.DataZoomOpts(), opts.DataZoomOpts(type_="inside")],
         )
@@ -54,7 +58,7 @@ def draw():
             .add_yaxis('', yAxis)
             .set_global_opts(
             xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=-15)),
-            yaxis_opts=opts.AxisOpts(name='销量(万台)'),
+            yaxis_opts=opts.AxisOpts(name='销量(台)'),
             title_opts=opts.TitleOpts(title=f"每个品牌最高销量表"),
             datazoom_opts=[opts.DataZoomOpts(), opts.DataZoomOpts(type_="inside")],
         )
@@ -80,9 +84,6 @@ def draw():
             word_size_range=[5, 700],
             width=width,
             height=height,
-            # mask_image="car.jpg",  ###设置背景图
-            # rotate_step=45,
-            # textstyle_opts=opts.TextStyleOpts(font_family="C:\Windows\Fonts\STCAIYUN.TTF"),
         )
             .set_global_opts(
             title_opts=opts.TitleOpts(
@@ -154,9 +155,11 @@ def draw():
     )
 
     page.add(line)
-
-    page.render("./displayChart/展示图表.html")
+    link = f'{os.getcwd()}\\display\\show.html'
+    page.render(link, )
     print("图标绘制完成😀")
+    return link
+
 
 if __name__ == '__main__':
-    draw()
+    webbrowser.open(draw())

@@ -2,7 +2,7 @@
 # @Author : Loners
 # @Time   : 2021/11/27 16:38
 # @File   : start.py
-
+import webbrowser
 import analysis
 import dataStorage
 import draw
@@ -23,7 +23,7 @@ dataStorage.insertData('car_info', result)
 # 获取懂车分
 ## 通过数据库获得series_id
 infos = dataStorage.queryData('car_info')
-
+# 创建线程池
 executor = ThreadPoolExecutor(max_workers=30)
 tasks = []
 for info in infos:
@@ -36,5 +36,5 @@ executor.shutdown(wait=True)
 # 将结果存储到数据库中
 dataStorage.insertData('score', scoreRes)
 
-# 画图
-draw.draw()
+# 绘制展示图
+webbrowser.open(draw.draw())

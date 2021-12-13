@@ -2,14 +2,11 @@
 # @Author : Loners
 # @Time   : 2021/11/15 20:25
 # @File   : dataStorage.py
-
-# 🔨该文件的代码还存在BUG，待修复完善
-
 import pymysql
 
 host = "127.0.0.1"
 user = "root"
-password = "lyh3456"
+password = "xxxxxx"
 database = "dongchedi"
 
 try:
@@ -17,7 +14,7 @@ try:
 except BaseException as e:
     print(f"数据库连接异常🤡  {e}")
 else:
-    print("数据库连接异常🤡")
+    print("数据库连接成功☺")
 
 
 # 生成SQL语句
@@ -88,6 +85,4 @@ def queryData(tableName, querySql=''):
 
 
 if __name__ == '__main__':
-    sql = "SELECT brand_name, GROUP_CONCAT( series_name ) AS 'series_names',SUM( count ) AS 'brand_count' FROM car_info GROUP BY car_info.brand_name ORDER BY SUM( count ) DESC"
-    print(queryData('car_info', sql))
     pass
