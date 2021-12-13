@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Author : Loners
 # @Time   : 2021/11/15 10:42
-# @File   : dcdReq.py
+# @File   : dcdRequest.py
 import requests
 import json
 
@@ -20,20 +20,20 @@ def requestData(url):
         response = requests.get(url=url, headers=headers)
         response.encoding = 'utf-8'
     except BaseException as e:
-        print(f"数据请求异常🤡  {e}")
+        print(f"🤡数据请求异常  {e}")
     else:
         if (response.status_code == 200):
-            print(f"{url} 请求成功☺")
+            print(f"😀请求成功 {url} ")
             return response.text
         else:
-            print("请求失败")
+            print("🤡请求失败")
             return 0
 
 
 def getSalesRank(month, count):
     """
     获得新能源汽车销售排行
-    :param month: 时间(500：半年；1000：一年)
+    :param month: 日期(500：半年；1000：一年；202111：2021年11月)
     :param count: 每一页最多显示数据量
     :return:JSON数据
     """

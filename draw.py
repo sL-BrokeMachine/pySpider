@@ -27,7 +27,7 @@ def draw():
 
     bar_1 = (
         Bar(
-            init_opts=opts.InitOpts(width=width, height=height, page_title= pageTitle)
+            init_opts=opts.InitOpts(width=width, height=height, page_title=pageTitle)
         )
             .add_xaxis(xAxis)
             .add_yaxis('', yAxis)
@@ -157,7 +157,7 @@ def draw():
     page.add(line)
     link = f'{os.getcwd()}\\display\\show.html'
     page.render(link, )
-    print("图标绘制完成😀")
+    print("图表绘制完成😀")
     return link
 
 

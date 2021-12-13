@@ -3,13 +3,19 @@
 # @Time   : 2021/11/15 18:29
 # @File   : analysis.py
 
-import dcdReq
+import dcdRequest
 from pyquery import PyQuery as pq
 
 
-# 解析汽车销量排行榜
 def analysisSalesRank(month, count, tableField: list):
-    infos = dcdReq.getSalesRank(month, count)['data']['list']
+    """
+    筛选汽车销量排行榜返回的JSON数据
+    :param month:日期(500：半年；1000：一年；202111：2021年11月)
+    :param count:一次请求的数据量
+    :param tableField:所需要的数据字段名(type:list)
+    :return:list
+    """
+    infos = dcdRequest.getSalesRank(month, count)['data']['list']
     result = []
     for info in infos:
         dic = {}
@@ -20,9 +26,15 @@ def analysisSalesRank(month, count, tableField: list):
     return result
 
 
-# 获取懂车分
 def analysisScore(seriesId, seriesName, *tableField: list):
-    doc = pq(dcdReq.getScore(seriesId))
+    """
+    对懂车分页面进行解析
+    :param seriesId:每辆汽车对应的series_id
+    :param seriesName:每辆汽车的名称
+    :param tableField:所需要的数据字段名(type:list)
+    :return:list
+    """
+    doc = pq(dcdRequest.getScore(seriesId))
     elements = doc(".tw-h-94")
     score = []
     score.append(seriesId)
