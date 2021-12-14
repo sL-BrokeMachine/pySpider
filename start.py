@@ -12,8 +12,9 @@ tableField = ['series_id', 'brand_name', 'series_name', 'min_price', 'max_price'
 scoreTable = ['series_id', 'series_name', 'composite', 'appearance', 'interior', 'configure', 'space', 'comfort',
               'manipulation', 'power']
 
-mount = 1000  # 一年
+mount = 1000  # 一年销量
 count = 100
+max_workers = 30 # 线程池数据
 
 # 获取汽车销量榜
 result = analysis.analysisSalesRank(mount, count, tableField)
@@ -24,7 +25,7 @@ dataStorage.insertData('car_info', result)
 ## 通过数据库获得series_id
 infos = dataStorage.queryData('car_info')
 # 创建线程池
-executor = ThreadPoolExecutor(max_workers=30)
+executor = ThreadPoolExecutor(max_workers=max_workers)
 tasks = []
 for info in infos:
     # 通过submit函数提交执行的函数(analysis.analysisScore)到线程池中，submit函数立即返回，不阻塞
