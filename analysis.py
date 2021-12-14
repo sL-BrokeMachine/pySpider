@@ -10,7 +10,7 @@ from pyquery import PyQuery as pq
 def analysisSalesRank(month, count, tableField: list):
     """
     筛选汽车销量排行榜返回的JSON数据
-    :param month:日期(500：半年；1000：一年；202111：2021年11月)
+    :param month:日期(500:半年；1000:一年；202111:2021年11月)
     :param count:一次请求的数据量
     :param tableField:所需要的数据字段名(type:list)
     :return:list
