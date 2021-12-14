@@ -5,7 +5,6 @@
 import requests
 import json
 
-
 def requestData(url):
     """
     封装请求函数
@@ -17,7 +16,8 @@ def requestData(url):
         'cookie': 'msToken=-s47EZoJ60RImLkP85fuulrgriS8L-qlSXK6XwfG2CH2cQqp-3qv3-RLtnuYigcA4YoabQ_sut1TFy_e_1DvHGpqNzJd_ESmm_Z2o22m5HJ1'
     }
     try:
-        response = requests.get(url=url, headers=headers)
+        session = requests.session()
+        response = session.get(url=url, headers=headers)
         response.encoding = 'utf-8'
     except BaseException as e:
         print(f"🤡数据请求异常  {e}")
