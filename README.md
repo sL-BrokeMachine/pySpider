@@ -24,13 +24,13 @@
 >
 > |____display
 >
-> ​	|- show.html
+> ​	   |- show.html
 >
 > |____SQL
 >
-> ​	|- car_info.sql
+> ​	   |- car_info.sql
 >
-> ​	|- score.sql
+> ​	   |- score.sql
 >
 > |- start.py
 
