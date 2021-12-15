@@ -14,22 +14,25 @@
 
 ### 项目目录结构
 
-> │  analysis.py
-> │  dataStorage.py
-> │  dcdRequest.py
-> │  draw.py
-> │  README.md
-> │  start.py
-> │  test.txt
-> │  
-> ├─display
-> │      show.html
-> │      
-> ├─SQL
-> │      car_info.sql
-> │      score.sql
+> |- dcdRequest.py
 >
-> 
+> |- analysis.py
+>
+> |- dataStorage.py
+>
+> |- draw.py
+>
+> |____display
+>
+> ​	|- show.html
+>
+> |____SQL
+>
+> ​	|- car_info.sql
+>
+> ​	|- score.sql
+>
+> |- start.py
 
 - dcdRequest.py：负责对页面数据进行请求。
 - analysis.py：负责对`dcdRequest.py`请求成功的数据进行解析成为自己所需要的数据。
