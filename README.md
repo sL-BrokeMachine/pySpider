@@ -14,32 +14,29 @@
 
 ### 项目目录结构
 
-> |- dcdRequest.py
->
-> |- analysis.py
->
-> |- dataStorage.py
->
-> |- draw.py
->
-> |____display
->
-> ​	|- show.html
->
-> |____SQL
->
-> ​	|- car_info.sql
->
-> ​	|- score.sql
->
-> |- start.py
+```
+  |-- analysis.py
+  |-- dataStorage.py
+  |-- dcdRequest.py
+  |-- draw.py
+  |-- README.md
+  |-- start.py
+  |-- test.txt
+  |-- display
+  |   |-- show.html
+  |-- SQL
+  |   |-- car_info.sql
+  |   |-- score.sql
+```
+
+
 
 - dcdRequest.py：负责对页面数据进行请求。
 - analysis.py：负责对`dcdRequest.py`请求成功的数据进行解析成为自己所需要的数据。
 - dataStorage.py：负责对`analysis.py`解析好的数据进行存储，并提供了`queryData`方法，方便后续`draw.py`调用该方法获得数据库数据。
 - draw.py：通过在该文件中调用`pyecharts`库文件实现相关的数据展示的HTML文件生成。
 - display：在该目录中存放的是由`draw.py`生成的数据展示HTML文件。
-- SQl：在该目录中存放的是对应的数据库SQL文件。
+- SQL：在该目录中存放的是对应的数据库SQL文件。
 - start.py：文件入口，在该文件中负责全局代码的调用，在该文件中运用了多线程技术对页面信息进行请求。
 
 ### 项目运行方式
